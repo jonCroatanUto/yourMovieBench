@@ -1,12 +1,14 @@
 import initialState from "./state";
 import { FETCH_DATA_TVSHOW } from "./types";
 type Action = {
-  payload: {
-    id: number;
-    vote_average: number;
-    title: string;
-    poster_path: string;
-  };
+  payload: [
+    {
+      id: number;
+      vote_average: number;
+      title: string;
+      poster_path: string;
+    }
+  ];
   type: string;
 };
 const TVshowsReducer = (state = initialState, action: Action) => {
