@@ -6,6 +6,7 @@ type Action = {
       id: number;
       vote_average: number;
       title: string;
+      name: string;
       poster_path: string;
     }
   ];

@@ -4,6 +4,7 @@ const initialState = {
       id: 0,
       vote_average: 0,
       title: "",
+      name: "",
       poster_path: "",
     },
   ],

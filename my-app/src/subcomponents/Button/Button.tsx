@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button() {
-  return <div>I'm a Button</div>;
+function Button(props: { onClick: () => void }) {
+  return <button onClick={props.onClick}>next</button>;
 }
 export default Button;
