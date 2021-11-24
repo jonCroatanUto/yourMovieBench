@@ -1,4 +1,4 @@
-import { FETCH_DATA_MOVIES } from "./types";
+import { FETCH_DATA_MOVIES, CHANGE_MOVIE_POSITION } from "./types";
 
 export const fetchMoviesDataAction = (
   value: [
@@ -11,5 +11,10 @@ export const fetchMoviesDataAction = (
   ]
 ) => ({
   type: FETCH_DATA_MOVIES,
+  payload: value,
+});
+
+export const changeMoviePosAction = (value: number) => ({
+  type: CHANGE_MOVIE_POSITION,
   payload: value,
 });

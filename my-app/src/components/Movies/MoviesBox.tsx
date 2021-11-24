@@ -5,13 +5,15 @@ import Modal from "../../subcomponents/Modal";
 import { RootState } from "../../redux/reducers";
 
 function MoviesBox() {
-  const { movieData } = useSelector((state: RootState) => state.moviesReducer);
+  const { movieData, moviePosition } = useSelector(
+    (state: RootState) => state.moviesReducer
+  );
 
   return (
     <div>
       <div>I'm a MoviesBox</div>
 
-      <Slide data={movieData[0]} />
+      <Slide data={movieData[moviePosition]} />
 
       <Modal />
     </div>

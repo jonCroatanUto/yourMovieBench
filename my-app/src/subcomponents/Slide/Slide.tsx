@@ -1,6 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
+import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
+import { RootState } from "../../redux/reducers";
+
 function Slide(props: {
   data: {
     id: number;
@@ -10,13 +13,16 @@ function Slide(props: {
     poster_path: string;
   };
 }) {
-  let pos: number = 0;
+  const { data } = props;
+  const dispatch = useDispatch();
+  const { moviePosition } = useSelector(
+    (state: RootState) => state.moviesReducer
+  );
 
   function nextMovie() {
-    pos = pos + 1;
-    console.log(pos);
+    let position: number = moviePosition + 1;
+    dispatch(changeMoviePosAction(position));
   }
-  const { data } = props;
   return (
     <div>
       <div>{data.title}</div>

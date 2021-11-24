@@ -1,6 +1,7 @@
 import initialState from "./state";
-import { FETCH_DATA_MOVIES } from "./types";
-type Action = {
+import { FETCH_DATA_MOVIES, CHANGE_MOVIE_POSITION } from "./types";
+interface ActionA {
+  type: typeof FETCH_DATA_MOVIES;
   payload: [
     {
       id: number;
@@ -10,13 +11,19 @@ type Action = {
       poster_path: string;
     }
   ];
-  type: string;
-};
+}
+interface ActionB {
+  type: typeof CHANGE_MOVIE_POSITION;
+  payload: number;
+}
+type Action = ActionA | ActionB;
+
 const moviesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case FETCH_DATA_MOVIES:
       return { ...state, movieData: action.payload };
-
+    case CHANGE_MOVIE_POSITION:
+      return { ...state, moviePosition: action.payload };
     default:
       return state;
   }
