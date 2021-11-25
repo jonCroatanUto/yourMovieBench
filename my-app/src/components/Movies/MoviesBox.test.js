@@ -16,5 +16,5 @@ test("the text is rendered", () => {
   );
   const component = render(wrapper);
   //   console.log(component);
-  component.getByText("I'm a MoviesBox");
+  component.getByText("Popular movies");
 });

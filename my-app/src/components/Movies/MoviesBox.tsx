@@ -11,7 +11,7 @@ function MoviesBox() {
 
   return (
     <div>
-      <h1>I'm a MoviesBox</h1>
+      <h1>Popular movies</h1>
 
       <Slide key="moviesSlide" data={movieData[moviePosition]} />
 

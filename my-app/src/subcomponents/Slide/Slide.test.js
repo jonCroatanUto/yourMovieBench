@@ -8,7 +8,7 @@ import store from "../../redux/store";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-test("the text is rendered", () => {
+test("Slide recive the correct props key", () => {
   const data = {
     id: "number",
     vote_average: "number",

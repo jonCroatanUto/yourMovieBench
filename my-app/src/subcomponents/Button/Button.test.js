@@ -7,15 +7,8 @@ import { Provider } from "react-redux";
 import store from "../../redux/store";
 
 Enzyme.configure({ adapter: new Adapter() });
-// describe("test for a button", () => {
+
 test("the button is make a call", () => {
-  //   const onClik = {
-  //     id: "number",
-  //     vote_average: "number",
-  //     title: "string",
-  //     name: "string",
-  //     poster_path: "string",
-  //   };
   const mockHandler = jest.fn();
   const wrapper = Enzyme.mount(
     <Provider store={store}>
@@ -28,4 +21,3 @@ test("the button is make a call", () => {
   fireEvent.click(button);
   expect(mockHandler.mock.calls);
 });
-// });
