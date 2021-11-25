@@ -1,6 +1,11 @@
 import React from "react";
-
-function Button(props: { onClick: () => void }) {
-  return <button onClick={props.onClick}>next</button>;
+import "./button.css";
+import { IoIosPlay } from "react-icons/io";
+function Button(props: { onClick: () => void; side: string }) {
+  return (
+    <button className="buttonStyle" onClick={props.onClick}>
+      <IoIosPlay className={props.side} />
+    </button>
+  );
 }
 export default Button;

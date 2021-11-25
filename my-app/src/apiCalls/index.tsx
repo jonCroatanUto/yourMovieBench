@@ -1,3 +1,3 @@
-import moviesFetch from "./movieaApiCalls";
+import { moviesFetch, movieImage } from "./movieaApiCalls";
 import tvShowsFetch from "./tvShowApiCalls";
-export { moviesFetch, tvShowsFetch };
+export { moviesFetch, movieImage, tvShowsFetch };

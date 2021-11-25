@@ -6,6 +6,7 @@ const initialState = {
       title: "",
       name: "",
       poster_path: "",
+      backdrop_path: "",
     },
   ],
   tvShowPosition: 0,

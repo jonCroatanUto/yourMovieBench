@@ -7,6 +7,7 @@ export const fetchTvshowsDataAction = (
       vote_average: number;
       title: string;
       poster_path: string;
+      backdrop_path: string;
     }
   ]
 ) => ({

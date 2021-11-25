@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
 import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
 import { changeTVshowPosAction } from "../../redux/tvShowsReducer/actions";
 import { RootState } from "../../redux/reducers";
+import { movieImage } from "../../apiCalls";
 
 function Slide(props: {
   data: {
@@ -12,8 +13,11 @@ function Slide(props: {
     title: string;
     name: string;
     poster_path: string;
+    backdrop_path: string;
   };
 }) {
+  const [loadingImage, setLoadingImage] = useState(true);
+  const { REACT_APP_API_IMAGE_URL } = process.env;
   const { data } = props;
   const dispatch = useDispatch();
   const { moviePosition } = useSelector(
@@ -33,6 +37,7 @@ function Slide(props: {
       dispatch(changeMoviePosAction(0));
     } else {
       dispatch(changeMoviePosAction(position));
+      setLoadingImage(false);
     }
   }
   function TVshowNextID() {
@@ -45,23 +50,85 @@ function Slide(props: {
       dispatch(changeTVshowPosAction(0));
     } else {
       dispatch(changeTVshowPosAction(position));
+      setLoadingImage(false);
     }
   }
   return (
     <>
       {data.name === undefined ? (
-        <div key={data.id}>
-          <p key={data.id}>{data.title}</p>
-
-          <Button key="nextMoviesButton" onClick={movieNextID} />
-          <Button key="previousMoviesButton" onClick={moviePreviousID} />
-        </div>
+        <>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-2 align-self-center">
+                <div className="row justify-content-center">
+                  <Button
+                    key="previousMoviesButton"
+                    onClick={moviePreviousID}
+                    side="iconPevious"
+                  />
+                </div>
+              </div>
+              <div className="col-8 align-self-center">
+                <div className="card" key={data.id}>
+                  <img
+                    className="card-img-top"
+                    src={`${REACT_APP_API_IMAGE_URL}${data.backdrop_path}`}
+                  />
+                  <div className="card-body">
+                    <p key={data.id}>Title:{data.title}</p>
+                    <p>vote_average:{data.vote_average}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-2 align-self-center">
+                <div className="row justify-content-center">
+                  <Button
+                    key="nextMoviesButton"
+                    onClick={movieNextID}
+                    side="iconNext"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       ) : (
-        <div key={data.name}>
-          <p key={data.id}>{data.name}</p>
-          <Button key="nextTvShowButton" onClick={TVshowNextID} />
-          <Button key="previousTvShowButton" onClick={TVshowPreviousID} />
-        </div>
+        <>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-2 align-self-center">
+                <div className="row justify-content-center">
+                  <Button
+                    key="previousMoviesButton"
+                    onClick={TVshowPreviousID}
+                    side="iconPevious"
+                  />
+                </div>
+              </div>
+              <div className="col-8 align-self-center">
+                <div className="card" key={data.id}>
+                  <img
+                    className="card-img-top"
+                    src={`${REACT_APP_API_IMAGE_URL}${data.backdrop_path}`}
+                  />
+                  <div className="card-body">
+                    <p>Title: {data.name}</p>
+                    <p>Vote_average: {data.vote_average}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-2 align-self-center">
+                <div className="row justify-content-center">
+                  <Button
+                    key="nextMoviesButton"
+                    onClick={TVshowNextID}
+                    side="iconNext"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </>
   );

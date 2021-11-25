@@ -20,12 +20,14 @@ function Home() {
           vote_average: number;
           title: string;
           poster_path: string;
+          backdrop_path: string;
         }) => {
           return {
             id: movie.id,
             vote_average: movie.vote_average,
             title: movie.title,
             poster_path: movie.poster_path,
+            backdrop_path: movie.backdrop_path,
           };
         }
       );
@@ -39,12 +41,14 @@ function Home() {
           vote_average: number;
           name: string;
           poster_path: string;
+          backdrop_path: string;
         }) => {
           return {
             id: TVshow.id,
             vote_average: TVshow.vote_average,
             name: TVshow.name,
             poster_path: TVshow.poster_path,
+            backdrop_path: TVshow.backdrop_path,
           };
         }
       );
