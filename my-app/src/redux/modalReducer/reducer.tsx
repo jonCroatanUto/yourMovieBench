@@ -1,13 +1,13 @@
 import initialState from "./state";
-import { DISPLAY_MODAL } from "./types";
+import { SLIDER_SWITCH } from "./types";
 type Action = {
-  payload: boolean;
+  payload: string;
   type: string;
 };
 const modalReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case DISPLAY_MODAL:
-      return { ...state, display: action.payload };
+    case SLIDER_SWITCH:
+      return { ...state, slider_switch: action.payload };
 
     default:
       return state;

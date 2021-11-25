@@ -1,4 +1,4 @@
 const initialState = {
-  display: false,
+  slider_switch: "tvShow",
 };
 export default initialState;

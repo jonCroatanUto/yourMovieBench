@@ -1,6 +1,6 @@
-import { DISPLAY_MODAL } from "./types";
+import { SLIDER_SWITCH } from "./types";
 
-export const displayModalAction = (value: boolean) => ({
-  type: DISPLAY_MODAL,
+export const switchSliderAction = (value: string) => ({
+  type: SLIDER_SWITCH,
   payload: value,
 });

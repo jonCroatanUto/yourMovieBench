@@ -10,12 +10,13 @@ function MoviesBox() {
   );
 
   return (
-    <div>
-      <h1>Popular movies</h1>
-
-      <Slide key="moviesSlide" data={movieData[moviePosition]} />
-
-      {/* <Modal /> */}
+    <div className="container">
+      <div className="row">
+        <h1>Popular movies</h1>
+      </div>
+      <div className="row">
+        <Slide key="moviesSlide" data={movieData[moviePosition]} />
+      </div>
     </div>
   );
 }

@@ -1,1 +1,1 @@
-export const DISPLAY_MODAL = "DISPLAY_MODAL";
+export const SLIDER_SWITCH = "DISPLAY_MODAL";

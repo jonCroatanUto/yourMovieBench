@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../../components/NavBar";
 import TVshowsBox from "../../components/TVshows";
 import MoviesBox from "../../components/Movies";
 import { moviesFetch, tvShowsFetch } from "../../apiCalls";
 import { fetchMoviesDataAction } from "../../redux/moviesReducer/actions";
 import { fetchTvshowsDataAction } from "../../redux/tvShowsReducer/actions";
-
+import { RootState } from "../../redux/reducers";
 function Home() {
   //const { movieData } = useSelector((state: RootState) => state.moviesReducer);
   const [isLodaingMovies, setIsLoadingMovies] = useState(true);
+  const { slider_switch } = useSelector(
+    (state: RootState) => state.modalReducer
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     moviesFetch().then((res) => {
@@ -64,8 +67,11 @@ function Home() {
         <>
           {/* <div>I'm home</div> */}
           <NavBar />
-          <TVshowsBox key="tvShow" />
-          <MoviesBox key="movies" />
+          {slider_switch === "movies" ? (
+            <MoviesBox key="movies" />
+          ) : (
+            <TVshowsBox key="tvShow" />
+          )}
         </>
       )}
     </>
