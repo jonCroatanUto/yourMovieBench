@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
 import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
@@ -16,7 +17,8 @@ function Slide(props: {
     backdrop_path: string;
   };
 }) {
-  const [loadingImage, setLoadingImage] = useState(true);
+  let navegate = useNavigate();
+
   const { REACT_APP_API_IMAGE_URL } = process.env;
   const { data } = props;
   const dispatch = useDispatch();
@@ -26,6 +28,9 @@ function Slide(props: {
   const { tvShowPosition } = useSelector(
     (state: RootState) => state.tvShowsReducer
   );
+  function SeeDetail() {
+    navegate("./details");
+  }
 
   function movieNextID() {
     let position: number = moviePosition + 1;
@@ -37,7 +42,6 @@ function Slide(props: {
       dispatch(changeMoviePosAction(0));
     } else {
       dispatch(changeMoviePosAction(position));
-      setLoadingImage(false);
     }
   }
   function TVshowNextID() {
@@ -50,7 +54,6 @@ function Slide(props: {
       dispatch(changeTVshowPosAction(0));
     } else {
       dispatch(changeTVshowPosAction(position));
-      setLoadingImage(false);
     }
   }
   return (
@@ -112,8 +115,23 @@ function Slide(props: {
                     src={`${REACT_APP_API_IMAGE_URL}${data.backdrop_path}`}
                   />
                   <div className="card-body">
-                    <p>Title: {data.name}</p>
-                    <p>Vote_average: {data.vote_average}</p>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-10">
+                          <p>Title: {data.name}</p>
+                          <p>Vote_average: {data.vote_average}</p>
+                        </div>
+                        <div className="col-2 align-self-center">
+                          <button
+                            onClick={SeeDetail}
+                            type="button"
+                            className="button btn btn-warning"
+                          >
+                            details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Modal() {
+function Details() {
   return <p>I'm a Modal</p>;
 }
-export default Modal;
+export default Details;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Slide from "../../subcomponents/Slide";
-import Modal from "../../subcomponents/Modal";
+
 import { RootState } from "../../redux/reducers";
 
 function TVshowsBox() {
@@ -10,9 +10,8 @@ function TVshowsBox() {
   );
   return (
     <div>
-      <h1>Popular TVshows</h1>
+      <h1 className="titles">Popular TVshows</h1>
       <Slide key="TvShowSlide" data={tvShowData[tvShowPosition]} />
-      {/* <Modal /> */}
     </div>
   );
 }
