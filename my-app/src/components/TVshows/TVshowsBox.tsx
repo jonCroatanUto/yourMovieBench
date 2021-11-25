@@ -10,7 +10,7 @@ function TVshowsBox() {
   );
   return (
     <div>
-      <div>I'm a tvBox</div>
+      <h1>Popular TVshows</h1>
       <Slide key="TvShowSlide" data={tvShowData[0]} />
       {/* <Modal /> */}
     </div>
