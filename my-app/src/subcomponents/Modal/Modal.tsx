@@ -1,6 +1,6 @@
 import React from "react";
 
 function Modal() {
-  return <div>I'm a Modal</div>;
+  return <p>I'm a Modal</p>;
 }
 export default Modal;

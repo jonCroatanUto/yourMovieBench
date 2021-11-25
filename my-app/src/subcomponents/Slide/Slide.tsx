@@ -18,17 +18,28 @@ function Slide(props: {
   const { moviePosition } = useSelector(
     (state: RootState) => state.moviesReducer
   );
-
+  // console.log("id", data.id);
+  // console.log("name", data.name);
+  // console.log("title", data.id);
   function nextMovie() {
     let position: number = moviePosition + 1;
     dispatch(changeMoviePosAction(position));
   }
   return (
-    <div>
-      <div>{data.title}</div>
-      <div>{data.name}</div>
-      <Button onClick={nextMovie} />
-    </div>
+    <>
+      {data.name === undefined ? (
+        <div key={data.title}>
+          <div>{data.title}</div>
+
+          <Button onClick={nextMovie} />
+        </div>
+      ) : (
+        <div key={data.name}>
+          <p>{data.name}</p>
+          <Button onClick={nextMovie} />
+        </div>
+      )}
+    </>
   );
 }
 export default Slide;

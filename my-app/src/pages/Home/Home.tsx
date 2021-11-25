@@ -60,8 +60,8 @@ function Home() {
         <>
           <div>I'm home</div>
           <NavBar />
-          <TVshowsBox />
-          <MoviesBox />
+          <TVshowsBox key="tvShow" />
+          <MoviesBox key="movies" />
         </>
       )}
     </>
