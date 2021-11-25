@@ -28,15 +28,15 @@ function Slide(props: {
   return (
     <>
       {data.name === undefined ? (
-        <div key={data.title}>
-          <div>{data.title}</div>
+        <div key={data.id}>
+          <p key={data.id}>{data.title}</p>
 
-          <Button onClick={nextMovie} />
+          <Button key="moviesButton" onClick={nextMovie} />
         </div>
       ) : (
         <div key={data.name}>
-          <p>{data.name}</p>
-          <Button onClick={nextMovie} />
+          <p key={data.id}>{data.name}</p>
+          <Button key="tvShowButton" onClick={nextMovie} />
         </div>
       )}
     </>

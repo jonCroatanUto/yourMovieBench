@@ -58,7 +58,7 @@ function Home() {
         <div>...Loading</div>
       ) : (
         <>
-          <div>I'm home</div>
+          {/* <div>I'm home</div> */}
           <NavBar />
           <TVshowsBox key="tvShow" />
           <MoviesBox key="movies" />

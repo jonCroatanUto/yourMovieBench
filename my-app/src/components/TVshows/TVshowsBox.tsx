@@ -11,8 +11,8 @@ function TVshowsBox() {
   return (
     <div>
       <div>I'm a tvBox</div>
-      <Slide data={tvShowData[0]} />
-      <Modal />
+      <Slide key="TvShowSlide" data={tvShowData[0]} />
+      {/* <Modal /> */}
     </div>
   );
 }

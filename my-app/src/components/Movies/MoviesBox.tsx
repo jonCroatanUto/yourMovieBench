@@ -11,11 +11,11 @@ function MoviesBox() {
 
   return (
     <div>
-      <div>I'm a MoviesBox</div>
+      <h1>I'm a MoviesBox</h1>
 
-      <Slide data={movieData[moviePosition]} />
+      <Slide key="moviesSlide" data={movieData[moviePosition]} />
 
-      <Modal />
+      {/* <Modal /> */}
     </div>
   );
 }
