@@ -8,5 +8,6 @@ const initialState = {
       poster_path: "",
     },
   ],
+  tvShowPosition: 0,
 };
 export default initialState;

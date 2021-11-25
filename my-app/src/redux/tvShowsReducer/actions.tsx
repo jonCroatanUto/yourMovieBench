@@ -1,4 +1,4 @@
-import { FETCH_DATA_TVSHOW } from "./types";
+import { FETCH_DATA_TVSHOW, CHANGE_TVSHOW_POSITION } from "./types";
 
 export const fetchTvshowsDataAction = (
   value: [
@@ -11,5 +11,10 @@ export const fetchTvshowsDataAction = (
   ]
 ) => ({
   type: FETCH_DATA_TVSHOW,
+  payload: value,
+});
+
+export const changeTVshowPosAction = (value: number) => ({
+  type: CHANGE_TVSHOW_POSITION,
   payload: value,
 });

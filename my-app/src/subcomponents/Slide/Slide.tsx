@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
 import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
+import { changeTVshowPosAction } from "../../redux/tvShowsReducer/actions";
 import { RootState } from "../../redux/reducers";
 
 function Slide(props: {
@@ -18,12 +19,33 @@ function Slide(props: {
   const { moviePosition } = useSelector(
     (state: RootState) => state.moviesReducer
   );
-  // console.log("id", data.id);
-  // console.log("name", data.name);
-  // console.log("title", data.id);
-  function nextMovie() {
+  const { tvShowPosition } = useSelector(
+    (state: RootState) => state.tvShowsReducer
+  );
+
+  function movieNextID() {
     let position: number = moviePosition + 1;
     dispatch(changeMoviePosAction(position));
+  }
+  function moviePreviousID() {
+    let position: number = moviePosition - 1;
+    if (position <= 0) {
+      dispatch(changeMoviePosAction(0));
+    } else {
+      dispatch(changeMoviePosAction(position));
+    }
+  }
+  function TVshowNextID() {
+    let position: number = tvShowPosition + 1;
+    dispatch(changeTVshowPosAction(position));
+  }
+  function TVshowPreviousID() {
+    let position: number = tvShowPosition - 1;
+    if (position < 0) {
+      dispatch(changeTVshowPosAction(0));
+    } else {
+      dispatch(changeTVshowPosAction(position));
+    }
   }
   return (
     <>
@@ -31,12 +53,14 @@ function Slide(props: {
         <div key={data.id}>
           <p key={data.id}>{data.title}</p>
 
-          <Button key="moviesButton" onClick={nextMovie} />
+          <Button key="nextMoviesButton" onClick={movieNextID} />
+          <Button key="previousMoviesButton" onClick={moviePreviousID} />
         </div>
       ) : (
         <div key={data.name}>
           <p key={data.id}>{data.name}</p>
-          <Button key="tvShowButton" onClick={nextMovie} />
+          <Button key="nextTvShowButton" onClick={TVshowNextID} />
+          <Button key="previousTvShowButton" onClick={TVshowPreviousID} />
         </div>
       )}
     </>
