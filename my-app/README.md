@@ -13,55 +13,64 @@ to start to ejecuting this code you should:
 git clone https://github.com/jonCroatanUto/yourMovieBench.git
 ```
 
-- go inside the folder `yourMovieBench` and run:
+- go inside the folder `yourMovieBench`and then inside `my-app` and run:
 
 ```
 npm install
 ```
 
-# Getting Started with Create React App
+# 🦴 Project Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Folder structure 🗂
 
-## Available Scripts
+<pre>  
+├───.github     <i>// Github actions config files </i>
+├───public
+└───src
+    ├───apiCalls	<i>//Call to external APIs </i>
+    ├───components
+    |        ├───Movies
+    |        ├───NavBAr
+    |        ├───TVShow
+    ├───pages
+    |       ├───Detail
+    |       ├───Home
+    |        
+    ├───redux
+    |       ├───ModalReducer
+    |       ├───MoviesReducer
+    |       ├───tvShowReducer
+    ├───subcomponents
+                ├───Button
+                ├───Slide
 
-In the project directory, you can run:
 
-### `npm start`
+</pre>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 🧭 App navigation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Home page 🗺
 
-### `npm test`
+IN home it's render a dinamic content. By one side the slider with all the popular movies and by the other the popular tvShows.
+This switch is controlled by the redux, that modify reducer states in order to condition the render of the diferents components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Detail page
 
-### `npm run build`
+This works similar as Home , but in this case I condition the full return of the component, because some of the propierties name that I get in the Api are the same and I need to condition witch details I need: tvShow details, or movies details
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Not found 🚫
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Due to SEO stats, this app also has a not found page that shows up every time the user tries to enter an unexistant page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# ✨ Wishlist and decisions made
 
-### `npm run eject`
+- Get deeply with functionalities with jest, there is some error message related with syncronies functions that I don't know how to fixed yet (first time with it..).
+- modulate more my project , for exemple made a type file.
+- Better render display of the details
+- Review the styles
+- Made responsive
+- More filters: The main issue here is that when adding more parameters to the queries, the queries are a lot slower at the moment of the development. Event the request by ID can take more than 30 seconds to load. You can see these times at the browser devtools, filter by Fetch/XHR.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 🖇️ Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you want to contribute, please fork the repository, create a new branch whit your contribution, and push the branch as a pull requests.

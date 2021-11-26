@@ -19,7 +19,6 @@ test("the text is rendered", () => {
   );
   act(() => {
     const component = render(wrapper);
+    component.getByText("...Loading");
   });
-  //   console.log(component);
-  //   component.getByText("Popular movies");
 });
