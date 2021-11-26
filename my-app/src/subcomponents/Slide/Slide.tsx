@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
-import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
+import {
+  changeMoviePosAction,
+  fetchMoviesDataDetailsAction,
+} from "../../redux/moviesReducer/actions";
 import { changeTVshowPosAction } from "../../redux/tvShowsReducer/actions";
 import { RootState } from "../../redux/reducers";
 import { movieDetails } from "../../apiCalls";
@@ -30,7 +33,7 @@ function Slide(props: {
   );
   function seeDetail() {
     movieDetails(data.id).then((res) => {
-      console.log(res.data);
+      dispatch(fetchMoviesDataDetailsAction(res.data));
       navegate("./details");
     });
   }
