@@ -14,12 +14,13 @@ const initialState = {
     adult: false,
     poster_path: "",
     overview: "",
-    genres: [{ name: "string" }],
+    genres: [],
     release_date: "",
     runtime: 0,
-    spoken_languages: [{ name: "string" }],
-    production_companies: [{ name: "string" }],
-    production_countries: [{ name: "string" }],
+    spoken_languages: [],
+    production_companies: [],
+    production_countries: [],
   },
+  movieDetalisShow: false,
 };
 export default initialState;

@@ -2,6 +2,7 @@ import {
   FETCH_DATA_MOVIES,
   CHANGE_MOVIE_POSITION,
   MOVIES_DETAILS,
+  MOVIES_DETAILS_SHOW,
 } from "./types";
 
 export const fetchMoviesDataAction = (
@@ -22,12 +23,12 @@ export const fetchMoviesDataDetailsAction = (value: {
   adult: boolean;
   poster_path: string;
   overview: string;
-  genres: [{ name: string }];
+  genres: string[];
   release_date: string;
   runtime: number;
-  spoken_languages: [{ name: string }];
-  production_companies: [{ name: string }];
-  production_countries: [{ name: string }];
+  spoken_languages: string[];
+  production_companies: string[];
+  production_countries: string[];
 }) => ({
   type: MOVIES_DETAILS,
   payload: value,
@@ -35,5 +36,9 @@ export const fetchMoviesDataDetailsAction = (value: {
 
 export const changeMoviePosAction = (value: number) => ({
   type: CHANGE_MOVIE_POSITION,
+  payload: value,
+});
+export const showMovieDetailsAction = (value: boolean) => ({
+  type: MOVIES_DETAILS_SHOW,
   payload: value,
 });

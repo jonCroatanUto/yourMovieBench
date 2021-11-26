@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import moviesReducer from "./moviesReducer/reducer";
 import tvShowsReducer from "./tvShowsReducer/reducer";
-import switchReducer from "./switchReducer/reducer";
+import switchReducer from "./modalReducer/reducer";
 
 export const reducers = combineReducers({
   moviesReducer: moviesReducer,

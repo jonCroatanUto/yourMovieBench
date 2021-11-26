@@ -5,16 +5,14 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Details from "./pages/Detail/Details";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { moviesFetch, tvShowsFetch } from "./apiCalls";
 import { fetchMoviesDataAction } from "./redux/moviesReducer/actions";
 import { fetchTvshowsDataAction } from "./redux/tvShowsReducer/actions";
-import { RootState } from "./redux/reducers";
+
 function App() {
   const [isLodaingMovies, setIsLoadingMovies] = useState(true);
-  const { slider_switch } = useSelector(
-    (state: RootState) => state.switchReducer
-  );
+
   const dispatch = useDispatch();
   useEffect(() => {
     moviesFetch().then((res) => {

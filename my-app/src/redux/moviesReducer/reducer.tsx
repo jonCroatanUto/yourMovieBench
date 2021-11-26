@@ -3,6 +3,7 @@ import {
   FETCH_DATA_MOVIES,
   CHANGE_MOVIE_POSITION,
   MOVIES_DETAILS,
+  MOVIES_DETAILS_SHOW,
 } from "./types";
 interface ActionA {
   type: typeof FETCH_DATA_MOVIES;
@@ -23,19 +24,23 @@ interface ActionC {
     adult: boolean;
     poster_path: string;
     overview: string;
-    genres: [{ name: string }];
+    genres: string[];
     release_date: string;
     runtime: number;
-    spoken_languages: [{ name: string }];
-    production_companies: [{ name: string }];
-    production_countries: [{ name: string }];
+    spoken_languages: string[];
+    production_companies: string[];
+    production_countries: string[];
   };
 }
 interface ActionB {
   type: typeof CHANGE_MOVIE_POSITION;
   payload: number;
 }
-type Action = ActionA | ActionB | ActionC;
+interface ActionD {
+  type: typeof MOVIES_DETAILS_SHOW;
+  payload: boolean;
+}
+type Action = ActionA | ActionB | ActionC | ActionD;
 
 const moviesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
@@ -44,6 +49,8 @@ const moviesReducer = (state = initialState, action: Action) => {
     case CHANGE_MOVIE_POSITION:
       return { ...state, moviePosition: action.payload };
     case MOVIES_DETAILS:
+      return { ...state, movieDetails: action.payload };
+    case MOVIES_DETAILS_SHOW:
       return { ...state, movieDetails: action.payload };
     default:
       return state;

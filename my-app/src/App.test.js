@@ -5,6 +5,7 @@ import Enzyme from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { act } from "react-dom/test-utils";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,7 +17,9 @@ test("the text is rendered", () => {
       </Router>
     </Provider>
   );
-  const component = render(wrapper);
+  act(() => {
+    const component = render(wrapper);
+  });
   //   console.log(component);
   //   component.getByText("Popular movies");
 });

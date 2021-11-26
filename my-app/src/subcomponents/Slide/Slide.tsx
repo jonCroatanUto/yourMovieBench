@@ -4,11 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
 import {
   changeMoviePosAction,
+  showMovieDetailsAction,
   fetchMoviesDataDetailsAction,
 } from "../../redux/moviesReducer/actions";
-import { changeTVshowPosAction } from "../../redux/tvShowsReducer/actions";
+import {
+  changeTVshowPosAction,
+  showTvShowDetailsAction,
+  fetchTvShowDataDetailsAction,
+} from "../../redux/tvShowsReducer/actions";
 import { RootState } from "../../redux/reducers";
-import { movieDetails } from "../../apiCalls";
+import { movieDetails, tvShowDetails } from "../../apiCalls";
 
 function Slide(props: {
   data: {
@@ -31,17 +36,87 @@ function Slide(props: {
   const { tvShowPosition } = useSelector(
     (state: RootState) => state.tvShowsReducer
   );
-  function seeDetail() {
+
+  function seeDetailMovies() {
     movieDetails(data.id).then((res) => {
-      dispatch(fetchMoviesDataDetailsAction(res.data));
+      const objectMovieDetailsToReducer = {
+        adult: res.data.adult,
+        poster_path: res.data.poster_path,
+        overview: res.data.overview,
+        genres: res.data.genres.map((genre: { id: number; name: string }) => {
+          return genre.name;
+        }),
+        release_date: res.data.release_date,
+        runtime: res.data.runtime,
+        spoken_languages: res.data.spoken_languages.map(
+          (languatge: { id: number; name: string }) => {
+            return languatge.name;
+          }
+        ),
+        production_companies: res.data.production_companies.map(
+          (company: { id: number; name: string }) => {
+            return company.name;
+          }
+        ),
+        production_countries: res.data.production_countries.map(
+          (country: { id: number; name: string }) => {
+            return country.name;
+          }
+        ),
+        name: data.name,
+      };
+
+      dispatch(fetchMoviesDataDetailsAction(objectMovieDetailsToReducer));
+      dispatch(showMovieDetailsAction(true));
       navegate("./details");
     });
   }
 
+  function seeDetailTvShow() {
+    tvShowDetails(data.id).then((res) => {
+      const objectTvShowDetailsToReducer: any = {
+        in_production: res.data.in_production,
+        poster_path: res.data.poster_path,
+        overview: res.data.overview,
+        created_by: res.data.created_by.map(
+          (genre: { id: number; name: string }) => {
+            return genre.name;
+          }
+        ),
+        next_episode_to_air: {
+          air_date: res.data.next_episode_to_air.air_date,
+          episode_number: res.data.next_episode_to_air.episode_number,
+          name: res.data.next_episode_to_air.name,
+          season_number: res.data.next_episode_to_air.season_number,
+        },
+
+        spoken_languages: res.data.spoken_languages.map(
+          (lenguatge: { id: number; name: string }) => {
+            return lenguatge.name;
+          }
+        ),
+        seasons: res.data.seasons.map(
+          (season: { id: number; name: string }) => {
+            return season.name;
+          }
+        ),
+        production_companies: res.data.production_companies.map(
+          (production_companies: { id: number; name: string }) => {
+            return production_companies.name;
+          }
+        ),
+        name: res.data.name,
+      };
+      dispatch(fetchTvShowDataDetailsAction(objectTvShowDetailsToReducer));
+      dispatch(showTvShowDetailsAction(true));
+      navegate("./details");
+    });
+  }
   function movieNextID() {
     let position: number = moviePosition + 1;
     dispatch(changeMoviePosAction(position));
   }
+
   function moviePreviousID() {
     let position: number = moviePosition - 1;
     if (position <= 0) {
@@ -50,10 +125,12 @@ function Slide(props: {
       dispatch(changeMoviePosAction(position));
     }
   }
+
   function TVshowNextID() {
     let position: number = tvShowPosition + 1;
     dispatch(changeTVshowPosAction(position));
   }
+
   function TVshowPreviousID() {
     let position: number = tvShowPosition - 1;
     if (position < 0) {
@@ -92,7 +169,7 @@ function Slide(props: {
                         </div>
                         <div className="col-2 align-self-center">
                           <button
-                            onClick={seeDetail}
+                            onClick={seeDetailMovies}
                             type="button"
                             className="button btn btn-warning"
                           >
@@ -144,7 +221,7 @@ function Slide(props: {
                         </div>
                         <div className="col-2 align-self-center">
                           <button
-                            onClick={seeDetail}
+                            onClick={seeDetailTvShow}
                             type="button"
                             className="button btn btn-warning"
                           >
