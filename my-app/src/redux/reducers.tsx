@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import moviesReducer from "./moviesReducer/reducer";
 import tvShowsReducer from "./tvShowsReducer/reducer";
-import modalReducer from "./modalReducer/reducer";
+import switchReducer from "./switchReducer/reducer";
 
 export const reducers = combineReducers({
   moviesReducer: moviesReducer,
   tvShowsReducer: tvShowsReducer,
-  modalReducer: modalReducer,
+  switchReducer: switchReducer,
 });
 export type RootState = ReturnType<typeof reducers>;

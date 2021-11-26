@@ -1,2 +1,1 @@
 export const SLIDER_SWITCH = "DISPLAY_MODAL";
-export const DETAILS_PAGE = "DETILS_PAGE";
