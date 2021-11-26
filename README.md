@@ -67,10 +67,6 @@ This switch is controlled by the redux, that modify reducer states in order to c
 
 This works similar as Home , but in this case I condition the full return of the component, because some of the propierties name that I get in the Api are the same and I need to condition witch details I need: tvShow details, or movies details
 
-## Not found 🚫
-
-Due to SEO stats, this app also has a not found page that shows up every time the user tries to enter an unexistant page.
-
 # ✨ Wishlist and decisions made
 
 - Get deeply with functionalities with jest, there is some error message related with syncronies functions that I don't know how to fixed yet (first time with it..).
