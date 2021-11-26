@@ -1,0 +1,13 @@
+.detailsBox {
+  margin-top: 2%;
+  background-color: none;
+}
+.list-group-item {
+  font-family: "Abril Fatface", cursive;
+}
+.list-group {
+  background-color: #ffca0d;
+}
+.imageDetail {
+  width: 70%;
+}

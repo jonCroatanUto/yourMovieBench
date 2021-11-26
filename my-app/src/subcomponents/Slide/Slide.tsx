@@ -30,8 +30,8 @@ function Slide(props: {
   );
   function seeDetail() {
     movieDetails(data.id).then((res) => {
-      console.log(res);
-      // navegate("./details");
+      console.log(res.data);
+      navegate("./details");
     });
   }
 
@@ -81,8 +81,23 @@ function Slide(props: {
                     src={`${REACT_APP_API_IMAGE_URL}${data.backdrop_path}`}
                   />
                   <div className="card-body">
-                    <p key={data.id}>Title:{data.title}</p>
-                    <p>vote_average:{data.vote_average}</p>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-10">
+                          <p>Title: {data.title}</p>
+                          <p>Vote_average: {data.vote_average}</p>
+                        </div>
+                        <div className="col-2 align-self-center">
+                          <button
+                            onClick={seeDetail}
+                            type="button"
+                            className="button btn btn-warning"
+                          >
+                            details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

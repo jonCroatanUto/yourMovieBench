@@ -8,13 +8,14 @@ import Details from "./pages/Detail/Details";
 
 function App() {
   return (
-    <div className="background">
+    <>
       <NavBar />
+      <div className="background"> </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details" element={<Details />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
