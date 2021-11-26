@@ -12,7 +12,7 @@ function Home() {
   //const { movieData } = useSelector((state: RootState) => state.moviesReducer);
   const [isLodaingMovies, setIsLoadingMovies] = useState(true);
   const { slider_switch } = useSelector(
-    (state: RootState) => state.modalReducer
+    (state: RootState) => state.switchReducer
   );
   const dispatch = useDispatch();
   useEffect(() => {
