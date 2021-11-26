@@ -13,10 +13,19 @@ to start to ejecuting this code you should:
 git clone https://github.com/jonCroatanUto/yourMovieBench.git
 ```
 
-- go inside the folder `yourMovieBench`and then inside `my-app` and run:
+- Go inside the folder `yourMovieBench`and then inside `my-app` and run:
 
 ```
 npm install
+```
+
+- For this project you should use this Api https://developers.themoviedb.org/3
+- Create a `.env` file adding in it:
+
+```
+REACT_APP_API_KEY=`this should be you api key in the Api`
+REACT_APP_API_URL=https://api.themoviedb.org/3/
+REACT_APP_API_IMAGE_URL=https://image.tmdb.org/t/p/w500
 ```
 
 # 🦴 Project Structure
