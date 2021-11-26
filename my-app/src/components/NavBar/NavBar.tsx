@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./navBar.css";
 import { useDispatch } from "react-redux";
-import { switchSliderAction } from "../../redux/modalReducer/actons";
+import { switchSliderAction } from "../../redux/switchReducer/actons";
 function NavBar() {
   const dispatch = useDispatch();
   const [silderLocation, setSliderLocation] = useState("movies");
