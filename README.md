@@ -13,7 +13,7 @@ to start to ejecuting this code you should:
 git clone https://github.com/jonCroatanUto/yourMovieBench.git
 ```
 
-- Go inside the folder `yourMovieBench`and then inside `my-app` and run:
+- Go inside the folder `yourMovieBench` and run:
 
 ```
 npm install
