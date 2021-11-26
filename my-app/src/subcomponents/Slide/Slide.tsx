@@ -5,7 +5,7 @@ import Button from "../Button";
 import { changeMoviePosAction } from "../../redux/moviesReducer/actions";
 import { changeTVshowPosAction } from "../../redux/tvShowsReducer/actions";
 import { RootState } from "../../redux/reducers";
-import { movieImage } from "../../apiCalls";
+import { movieDetails } from "../../apiCalls";
 
 function Slide(props: {
   data: {
@@ -28,8 +28,11 @@ function Slide(props: {
   const { tvShowPosition } = useSelector(
     (state: RootState) => state.tvShowsReducer
   );
-  function SeeDetail() {
-    navegate("./details");
+  function seeDetail() {
+    movieDetails(data.id).then((res) => {
+      console.log(res);
+      // navegate("./details");
+    });
   }
 
   function movieNextID() {
@@ -123,7 +126,7 @@ function Slide(props: {
                         </div>
                         <div className="col-2 align-self-center">
                           <button
-                            onClick={SeeDetail}
+                            onClick={seeDetail}
                             type="button"
                             className="button btn btn-warning"
                           >
