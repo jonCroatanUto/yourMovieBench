@@ -63,7 +63,7 @@ function Slide(props: {
             return country.name;
           }
         ),
-        name: data.name,
+        name: res.data.name,
       };
 
       dispatch(fetchMoviesDataDetailsAction(objectMovieDetailsToReducer));
@@ -74,32 +74,22 @@ function Slide(props: {
 
   function seeDetailTvShow() {
     tvShowDetails(data.id).then((res) => {
-      const objectTvShowDetailsToReducer: any = {
+      const objectTvShowDetailsToReducers = {
         in_production: res.data.in_production,
         poster_path: res.data.poster_path,
         overview: res.data.overview,
-        created_by: res.data.created_by.map(
-          (genre: { id: number; name: string }) => {
-            return genre.name;
-          }
-        ),
-        next_episode_to_air: {
-          air_date: res.data.next_episode_to_air.air_date,
-          episode_number: res.data.next_episode_to_air.episode_number,
-          name: res.data.next_episode_to_air.name,
-          season_number: res.data.next_episode_to_air.season_number,
-        },
+        created_by: res.data.created_by.map((creator: { name: string }) => {
+          return creator.name;
+        }),
 
         spoken_languages: res.data.spoken_languages.map(
-          (lenguatge: { id: number; name: string }) => {
+          (lenguatge: { name: string }) => {
             return lenguatge.name;
           }
         ),
-        seasons: res.data.seasons.map(
-          (season: { id: number; name: string }) => {
-            return season.name;
-          }
-        ),
+        seasons: res.data.seasons.map((season: { name: string }) => {
+          return season.name;
+        }),
         production_companies: res.data.production_companies.map(
           (production_companies: { id: number; name: string }) => {
             return production_companies.name;
@@ -107,7 +97,7 @@ function Slide(props: {
         ),
         name: res.data.name,
       };
-      dispatch(fetchTvShowDataDetailsAction(objectTvShowDetailsToReducer));
+      dispatch(fetchTvShowDataDetailsAction(objectTvShowDetailsToReducers));
       dispatch(showTvShowDetailsAction(true));
       navegate("./details");
     });

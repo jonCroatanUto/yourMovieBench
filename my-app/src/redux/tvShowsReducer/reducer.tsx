@@ -25,13 +25,6 @@ interface ActionC {
     poster_path: string;
     overview: string;
     created_by: string[];
-    next_episode_to_air: {
-      air_date: string;
-      episode_number: number;
-      name: string;
-      overview: string;
-      season_number: number;
-    };
 
     spoken_languages: string[];
     seasons: string[];
@@ -58,7 +51,7 @@ const TVshowsReducer = (state = initialState, action: Action) => {
     case TVSHOW_DETAILS:
       return { ...state, tvShowDetails: action.payload };
     case TVSHOW_DETAILS_SHOW:
-      return { ...state, tvShowDetails: action.payload };
+      return { ...state, TVshowDetailsShow: action.payload };
     default:
       return state;
   }

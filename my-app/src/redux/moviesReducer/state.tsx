@@ -21,6 +21,6 @@ const initialState = {
     production_companies: [],
     production_countries: [],
   },
-  movieDetalisShow: false,
+  movieDetailsShow: false,
 };
 export default initialState;

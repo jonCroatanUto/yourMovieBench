@@ -30,13 +30,6 @@ export const fetchTvShowDataDetailsAction = (value: {
   poster_path: string;
   overview: string;
   created_by: string[];
-  next_episode_to_air: {
-    air_date: string;
-    episode_number: number;
-    name: string;
-    overview: string;
-    season_number: number;
-  };
 
   spoken_languages: string[];
   seasons: string[];

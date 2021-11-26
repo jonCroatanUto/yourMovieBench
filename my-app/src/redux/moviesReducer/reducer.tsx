@@ -51,7 +51,7 @@ const moviesReducer = (state = initialState, action: Action) => {
     case MOVIES_DETAILS:
       return { ...state, movieDetails: action.payload };
     case MOVIES_DETAILS_SHOW:
-      return { ...state, movieDetails: action.payload };
+      return { ...state, movieDetailsShow: action.payload };
     default:
       return state;
   }
