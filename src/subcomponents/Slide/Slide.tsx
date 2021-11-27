@@ -97,6 +97,7 @@ function Slide(props: {
         ),
         name: res.data.name,
       };
+      console.log(objectTvShowDetailsToReducers);
       dispatch(fetchTvShowDataDetailsAction(objectTvShowDetailsToReducers));
       dispatch(showTvShowDetailsAction(true));
       navegate("./details");

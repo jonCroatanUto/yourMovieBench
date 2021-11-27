@@ -59,43 +59,37 @@ function Details() {
                 <li className="list-group-item bg-warning">
                   Lenguatges:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[2]}
-                    </li>
+                    {[spoken_languages].map((lenguatge: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {lenguatge}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
                 <li className="list-group-item bg-warning">
                   Productors:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {production_companies[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_companies[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_companies[2]}
-                    </li>
+                    {[production_companies].map((company: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {company}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
                 <li className="list-group-item bg-warning">
                   Productors Countries:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {production_countries[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_countries[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_countries[2]}
-                    </li>
+                    {[production_countries].map((country: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {country}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
               </ul>
@@ -135,52 +129,50 @@ function Details() {
                 <li className="list-group-item bg-warning">
                   created by:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {created_by[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {created_by[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {created_by[2]}
-                    </li>
+                    {[created_by].map((creator: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {creator}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
 
                 <li className="list-group-item bg-warning">
                   Lenguatges:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {spoken_languages[2]}
-                    </li>
+                    {[spoken_languages].map((lenguatge: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {lenguatge}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
                 <li className="list-group-item bg-warning">
                   Seasons:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">{seasons[0]}</li>
-                    <li className="list-group-item bg-warning">{seasons[1]}</li>
-                    <li className="list-group-item bg-warning">{seasons[2]}</li>
+                    {[seasons].map((season: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {season}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
                 <li className="list-group-item bg-warning">
                   Productors Countries:{" "}
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item bg-warning">
-                      {production_companies[0]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_companies[1]}
-                    </li>
-                    <li className="list-group-item bg-warning">
-                      {production_companies[2]}
-                    </li>
+                    {[production_companies].map((comapany: string, index) => {
+                      return (
+                        <li key={index} className="list-group-item bg-warning">
+                          {comapany}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
               </ul>
