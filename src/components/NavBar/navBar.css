@@ -13,3 +13,34 @@
 .button {
   max-height: 80px;
 }
+
+@media only screen and (max-width: 800px) {
+  .navBarTitle {
+    font-size: 85px;
+    color: #ffca0d;
+  }
+  .navBar {
+    background-color: black;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 3fr 0.5fr;
+    padding: 10px 50px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navBar {
+    background-color: black;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 3fr 0.5fr;
+    padding: 10px 50px;
+  }
+  .navBarTitle {
+    font-size: 50px;
+    color: #ffca0d;
+  }
+
+  .button {
+    max-height: 40px;
+  }
+}
