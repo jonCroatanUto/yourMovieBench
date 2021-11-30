@@ -28,15 +28,15 @@ function Details() {
     return (
       <>
         <div className="detailsBox container">
-          <div className="row">
-            <div className="col-8">
+          <div className="row align-items-center">
+            <div className="col-md-8 col-sx-12 align-self-center">
               <img
                 src={`${REACT_APP_API_IMAGE_URL}${poster_path}`}
                 alt="..."
                 className="imageDetail"
               />
             </div>
-            <div className="col-4">
+            <div className="col-md-4 col-sx-12">
               <ul className="list-group ">
                 <li className="list-group-item bg-warning">
                   {adult ? "Adullt content" : "All public"}
@@ -113,14 +113,14 @@ function Details() {
       <>
         <div className="detailsBox container">
           <div className="row">
-            <div className="col-8">
+            <div className=" col-md-8 col-xs-12">
               <img
                 src={`${REACT_APP_API_IMAGE_URL}${poster_path}`}
                 alt="..."
                 className="imageDetail"
               />
             </div>
-            <div className="col-4">
+            <div className=" col-md-4 col-xs-12">
               <ul className="list-group ">
                 <li className="list-group-item bg-warning">
                   {in_production ? "Is in production" : "not in production"}
