@@ -68,7 +68,7 @@ The conditional render is controlled by the redux state.
 
 # ✨ Wishlist and decisions made
 
-- Modulate more the project, for exemple make a type file for typscript types.
+- Modulate more the project, for exemple make a type file for Typescript types.
 - Improve detail view.
 - Make mobile version.
 - Go deeply with functionalities using jest.
